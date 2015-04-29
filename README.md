@@ -20,8 +20,11 @@ Androidのリソースファイルから、PhotoshopやIllustratorで利用で�
 ### 実行
 
 ```
-$ ruby acsm.rb  --path 'Users/tsukajizo/Documents/projects/android/HogeProject/app/src/main/res/'
+$ bundle install 
+$ ruby acsm.rb
 ```
+
+#### プロジェクト内のリソースファイル
 
 Users/tsukajizo/Documents/projects/android/HogeProject/app/src/main/res/values.color.xml
 ```
@@ -54,6 +57,8 @@ Users/tsukajizo/Documents/projects/android/HogeProject/app/src/main/res/values.c
     </integer-array>
 </resources>
 ```
+
+
 
 ### 結果
 #### ファイルが作成される
