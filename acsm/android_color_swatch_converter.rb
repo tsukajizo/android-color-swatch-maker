@@ -46,7 +46,7 @@ end
 def parse_android_resource_xml(rexml_doc)
   colors = []
   rexml_doc.elements.each('resources/item') do |item|
-    if item.attributes['type'] == 'color'
+    if item.attributes['type'] == 'color' && item.text.start_with?('#')
       colors.push Color.new(item.attributes['name'],item.text)
     end
   end
