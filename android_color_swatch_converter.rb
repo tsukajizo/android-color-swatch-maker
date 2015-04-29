@@ -1,6 +1,8 @@
 require 'ase'
 require 'rexml/document'
 
+$output_log = false
+
 class Color
   attr_accessor :name, :value
     def initialize(name, value)
@@ -23,7 +25,7 @@ def write_ase(name,colors,output)
   ase_doc = ASE.new
   palette = ASE::Palette.new(name)
   colors.each do | color |
-    p color.value
+    log color.value
     palette.add color.name, ASE::Color::RGB.from_hex(color.remove_alpha_hex)
   end
   ase_doc << palette
@@ -36,7 +38,7 @@ def parse_android_xml(rexml_doc)
   unless rexml_doc.elements["resources/item"].nil?
      colors = parse_android_resource_xml(rexml_doc)
   else
-    p 'not resource'
+    log 'not resource'
   end
   colors
 end
@@ -55,11 +57,17 @@ def read_android_color()
   files =  Dir.glob("**/*.xml")
   colors = []
   files.each do | file |
-    p 'filename :' + file
+    log 'filename :' + file
     doc = REXML::Document.new(open(file))
     colors.concat parse_android_xml(doc)
   end
   colors
+end
+
+def log(arg)
+  if $output_log
+    p arg
+  end
 end
 
 colors = read_android_color()
