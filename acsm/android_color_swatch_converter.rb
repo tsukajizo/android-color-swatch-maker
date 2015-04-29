@@ -1,7 +1,7 @@
 require 'ase'
 require 'rexml/document'
 
-$output_log = false
+
 
 class Color
   attr_accessor :name, :value
@@ -53,8 +53,9 @@ def parse_android_resource_xml(rexml_doc)
   colors
 end
 
-def read_android_color()
-  files =  Dir.glob("**/*.xml")
+def read_android_color(project_path)
+  path = project_path + "/**/*.xml"
+  files =  Dir.glob(path)
   colors = []
   files.each do | file |
     log 'filename :' + file
@@ -69,6 +70,3 @@ def log(arg)
     p arg
   end
 end
-
-colors = read_android_color()
-write_ase('My Colors',colors, 'file.ase' )
