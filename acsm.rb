@@ -3,7 +3,7 @@ require './acsm/android_color_swatch_converter.rb'
 
 $output_log = false
 path = './'
-filename = 'android.ase'
+filename = './bin/android.ase'
 palette_name = 'Android'
 
 opt = OptionParser.new
