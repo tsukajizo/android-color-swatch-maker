@@ -63,4 +63,4 @@ def read_android_color()
 end
 
 colors = read_android_color()
-write_ase('My Colors',colors, 'bin/file.ase' )
+write_ase('My Colors',colors, 'file.ase' )
