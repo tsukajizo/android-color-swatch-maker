@@ -8,15 +8,11 @@ class Color
       @value = value
     end
 
-    def ase_collor
-      ASE::Color::RGB.from_hex(remove_alpha_value)
-    end
-
-    def remove_alpha_value
+    def remove_alpha_hex
+      val = nil
+      val = @value
       if @value.size == 9
-        val = @value.slice(1,2)
-      else
-        val = @value
+        val.slice!(1,2)
       end
       val
     end
@@ -27,7 +23,8 @@ def write_ase(name,colors,output)
   ase_doc = ASE.new
   palette = ASE::Palette.new(name)
   colors.each do | color |
-    palette.add color.name, ASE::Color::RGB.from_hex(color.value)
+    p color.value
+    palette.add color.name, ASE::Color::RGB.from_hex(color.remove_alpha_hex)
   end
   ase_doc << palette
   ase_doc.to_file(output)
