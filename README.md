@@ -2,7 +2,9 @@
 
 Androidのリソースファイルから、PhotoshopやIllustratorで利用できるスウォッチライブラリを書き出すためのスクリプト。
 
-* 指定したプロジェクト内で以下のように指定されている値のみ取得をする。
+![swatch.png](docs/images/swatch.png)
+
+* 指定したプロジェクト内のリソースファイルで以下のように指定されている値のみ取得をする。
 
 ```
 <resources>
@@ -11,7 +13,7 @@ Androidのリソースファイルから、PhotoshopやIllustratorで利用で�
 ```
 
 
-![swatch.png](docs/images/swatch.png)
+
 
 ## Usage
 
